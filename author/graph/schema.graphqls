@@ -1,0 +1,27 @@
+interface Media {
+	id: ID!
+}
+extend type Movie @key(fields: "id") {
+	id: ID! @external
+}
+extend type Book @key(fields: "id") {
+	id: ID! @external
+}
+type MovieMedia implements Media {
+	id: ID!
+	media: Movie! @provides(fields: "id")
+}
+type BookMedia implements Media {
+	id: ID!
+	media: Book! @provides(fields: "id")
+}
+
+type Author {
+	name: String!
+	media: [Media!]
+}
+
+type Query {
+	authors: [Author!]
+}
+

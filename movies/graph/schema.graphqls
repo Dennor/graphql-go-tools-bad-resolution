@@ -1,0 +1,4 @@
+type Movie @key(fields: "id") {
+	id: ID!
+	title: String!
+}

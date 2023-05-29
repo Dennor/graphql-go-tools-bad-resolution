@@ -1,0 +1,5 @@
+type Book @key(fields: "id") {
+	id: ID!
+	title: String!
+	isbn: String!
+}
